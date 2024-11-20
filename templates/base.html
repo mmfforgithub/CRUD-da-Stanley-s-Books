@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanley's Books</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+</head>
+<body>
+    <header>
+        <img src="../static/img/ofe.jpg" alt="ofe">
+    </header>
+    <main>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/editora">Editora</a>
+                </li>
+                <li>
+                    <a href="/livro">Livro</a>
+                </li>
+                <li>
+                    <a href="/pedidos">Pedidos</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        {% block conteudo %}
+        {% endblock %}
+    </footer>
+</body>
+</html>
