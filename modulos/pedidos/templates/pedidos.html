@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div>
+        <a href="/pedidos/add">Adicionar</a>
+    </div>
+    <table>
+        <tr>
+            <th>Nome da Editora</th>
+            <th>Título</th>
+            <th>Data</th>
+        </tr>
+        {% for p in dados %}
+        <tr>
+            <td>{{p.editora.nome}}</td>
+            <td>{{p.livro.titulo}}</td>
+            <td>{{p.data}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block rodape %}
+    &copy; left
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+            <div class="message">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/livro/save" method="post">
+        <div>
+            <label for="nome">Editora: </label>
+            <select name="editora_id" id="nome">
+                <option value=""></option>
+                {% for p in editora %}
+                <option value="{{p.id}}">{{p.nome}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="titulo">Título: </label>
+            <input type="text" name="titulo" id="titulo">
+        </div>
+        <div>
+            <label for="genero">Gênero: </label>
+            <input type="text" name="genero" id="genero">
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+
+{% endblock %}
