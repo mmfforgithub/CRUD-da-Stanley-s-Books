@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Timepiece';
+    src: url('Timepiece.ttf') format('truetype');
+  }
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    font-family: "Timepiece", sans-serif;
+}
+:root {
+    --primary: orange;
+    --secondary: purple;
+    --alert: #ff0000;
+    --white: #fff;
+    --black: #000;
+}
+
+header {
+    background-color: var(--secondary);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+header img{
+    width: 12rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+main {
+    background-color: var(--primary);
+}
+
+
+
+.stanley {
+    background-color: var(--black);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.stanley img {
+    width: 12rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+body {
+    font-family: "Timepiece", "Times New Roman";
+    font-size: 110%;
+}
