@@ -8,13 +8,11 @@ from database import db
 from flask_migrate import Migrate
 db.init_app(app)
 migrate = Migrate(app, db)
-from models import Editora, Livro, Pedido
+from models import Editora, Livro
 from modulos.editora.editora import bp_editora
 from modulos.livros.livro import bp_livro
-from modulos.pedidos.pedidos import bp_pedidos
 app.register_blueprint(bp_editora, url_prefix='/editora')
 app.register_blueprint(bp_livro, url_prefix='/livro')
-app.register_blueprint(bp_pedidos, url_prefix='/pedidos')
 @app.route('/')
 def index():
     return render_template('ola.html')
