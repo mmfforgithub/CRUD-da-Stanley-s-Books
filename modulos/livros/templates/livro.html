@@ -17,12 +17,16 @@
             <th>Nome da Editora</th>
             <th>Título</th>
             <th>Gênero</th>
+            <th>Editar</th>
+            <th>Remover</th>
         </tr>
-        {% for u in dados %}
+        {% for livro in dados %}
         <tr>
-            <td>{{u.editora.nome}}</td>
-            <td>{{u.titulo}}</td>
-            <td>{{u.genero}}</td>
+            <td>{{livro.editora.nome}}</td>
+            <td>{{livro.titulo}}</td>
+            <td>{{livro.genero}}</td>
+            <td><a href="/livro/edit/{{livro.id}}">[...]</a></td>
+            <td><a href="/livro/remove/{{livro.id}}">[X]</a></td>
         </tr>
         {% endfor %}
     </table>
