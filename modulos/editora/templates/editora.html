@@ -16,11 +16,15 @@
         <tr>
             <th>Nome</th>
             <th>Fundação</th>
+            <th>Editar</th>
+            <th>Remover</th>
         </tr>
-        {% for u in dados %}
+        {% for editora in dados %}
         <tr>
-            <td>{{u.nome}}</td>
-            <td>{{u.fundacao}}</td>
+            <td>{{editora.nome}}</td>
+            <td>{{editora.fundacao}}</td>
+            <td><a href="/editora/edit/{{editora.id}}">[...]</a></td>
+            <td><a href="/editora/remove/{{editora.id}}">[X]</a></td>
         </tr>
         {% endfor %}
     </table>
