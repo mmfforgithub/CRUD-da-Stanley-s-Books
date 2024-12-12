@@ -28,3 +28,39 @@ def save():
     else:
         flash('Preencha todos os campos!')
         return redirect('/livro/add')
+    
+@bp_livro.route("/remove/<int:id>")
+def remove(id):
+    l = Livro.query.get(id)
+    try:
+        db.session.delete(l)
+        db.session.commit()
+        flash("Livro removido!")
+    except:
+        flash("Livro Inválido!")
+    return redirect("/livro")
+
+
+@bp_livro.route("/edit/<int:id>")
+def edit(id):
+    l = Livro.query.get(id)
+    e = Editora.query.all()
+    return render_template("livro_edit.html", dados=l, editora=e)
+
+
+@bp_livro.route("/edit-save", methods=['POST'])
+def edit_save():
+    titulo = request.form.get("titulo")
+    genero = request.form.get("genero")
+    editora_id = request.form.get("editora_id")
+    id = request.form.get("id")
+    if titulo and genero and editora_id and id:
+        l = Livro.query.get(id)
+        l.titulo = titulo
+        l.genero = genero
+        l.id_professor = editora_id
+        db.session.commit()
+        flash("Dados atualizados!")
+    else:
+        flash("Preencha todos os campos!")
+    return redirect("/livro")
